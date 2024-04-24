@@ -1,0 +1,39 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+<div class="bg-fondo">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <img src="/media/user/nueva_foto.png" class="card-img-top" alt="Se produjo un error">
+                <div class="card-body">
+                    <h5 class="card-title">{{ user.username | upper }}</h5>
+                    <small><i class="bi bi-geo-alt"></i> {{ user.location }}</small>
+                    <p class="card-text mt-3">{{ user.bio }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 mt-3 text-light">
+            <h4>Datos Personales</h4>
+            <p>Nombre: {{user.first_name}} {{user.last_name}}</p>
+            <p>Correo: {{user.email}}</p>
+            <p>Telefono: {{user.phone}}</p>
+            
+            <h4>Más Información</h4>
+            <p>Fecha de Nacimiento: {{ user.fecha_de_nacimiento }}</p>
+            
+            <div class="mt-4">
+                <a class="btn btn-primary mr-2" href={% url '/editarPerfil' %}>Editar Perfil</a>    
+                <button class="btn btn-danger">Eliminar Cuenta</button>
+            </div>
+            
+            <div class="mt-4">
+                <a href="{% url 'cambiar_contraseña' %}" class="btn btn-primary mr-2">Cambiar Contraseña</a>
+                <a href="#" class="btn btn-info">Ver Publicaciones</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<style>
+  /* Estilos para los botones */
+  form {
+      display: flex;
+      margin-right: 10px;
+  }
+
+  .boton_detalle {
+      display: flex;
+      align-items: center; /* Alinea verticalmente los elementos */
+  }
+
+  button[type="submit"],
+  input[type="submit"] {
+      padding: 10px 20px; /* Padding para un botón más grande */
+      border: none; /* Eliminar el borde del botón */
+      border-radius: 5px; /* Bordes redondeados para suavizar la apariencia */
+      background-color: #2777cd; /* Color de fondo azul */
+      color: white; /* Color de texto blanco */
+      cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+      transition: background-color 0.3s; /* Efecto de transición suave */
+  }
+
+  button[type="submit"]:hover,
+  input[type="submit"]:hover {
+      background-color: #138b0a;
+  }
+</style>
+<div class="container boton">
+  <h1 align="center"; style="color: rgba(0, 0, 0, 0.82); background-color: rgb(197, 214, 190);">Detalles de la publicación</h1>
+  <a href="{% url 'home' %}" class="back-button"><i class="fas fa-arrow-left"></i> Regresar</a>
+  </a>
+  <div class="card">
+    <div class="card-body">
+      <h2 class="card-title">Información de la Publicación</h2>
+      <p class="card-text"><strong>Producto:</strong> {{ publicacion.titulo }}</p>
+      <p class="card-text"><strong>Código:</strong> {{ publicacion.codigo }}</p>
+      <p class="card-text"><strong>Fecha Cosecha:</strong> {{ publicacion.fechaCosecha }}</p>
+      <p class="card-text"><strong>Precio:</strong> {{ publicacion.precio }}</p>
+      <p class="card-text"><strong>Cantidad:</strong> {{ publicacion.cantidad }}</p>
+      <p class="card-text"><strong>Categoría:</strong> {{ publicacion.categoria }}</p>
+      <p class="card-text"><strong>Unidad:</strong> {{ publicacion.unidad }}</p>
+      <p class="card-text"><strong>Descripción:</strong> {{ publicacion.descripcion }}</p>
+
+      <div class="boton_detalle">
+        <form action="{% url 'ver_perfil_vendedor' vendedor_id=publicacion.vendedor.id %}" method="POST">
+          {% csrf_token %}
+          <input type="submit" value="Información Vendedor">
+        </form>
+  
+        <form action="{% url 'enviar_mensaje' vendedor_id=vendedor.id %}" method="post">
+          {% csrf_token %}
+          <input type="hidden" name="destinatario" value="{{ vendedor.id }}">
+          <button type="submit">Enviar Mensaje</button>
+        </form>
+        
+        <form action="{% url 'denunciar' vendedor_id=vendedor.id %}" method="post">
+          {% csrf_token %}
+          <input type="hidden" name="usuario_denunciado" value="{{ vendedor.id }}">
+          <button type="submit">Denunciar Usuario</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+

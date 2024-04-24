@@ -1,0 +1,28 @@
+{% extends 'superestrella/admin_base.html' %}
+
+{% block content %}
+
+
+<div class="container mt-3">
+    <div class="alert alert-success" role="alert">
+        <strong>Bienvenido {{ nombre_admin }}, nuestra superestrella</strong>
+    </div>
+</div>
+
+
+<div class="container mt-3">
+    <h3>Lista de denunciados</h3>
+    {% if usuarios_denunciados %}
+        <ul>
+            {% for usuario in usuarios_denunciados %}
+                <li><a href="{% url 'juicio' usuario_id=usuario.id %}">{{ usuario.username }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <div class="alert alert-warning" role="alert">
+            <strong>No hay denuncias por el momento.</strong>
+        </div>
+    {% endif %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+<div class="bg-fondo pantalla">
+  <h3 class="text-light text-center py-3">Identificate</h3>
+
+  <form class= "py-3" action="{% url 'iniciar_sesion' %}" method="post">
+      {% csrf_token %}
+
+      <div class="card mx-auto login col-md-6">
+        <div class="card-body">
+          <h5 class="card-title">Ingrese sus Credenciales</h5>
+          {{ form | crispy }}
+          <button class="btn btn-sm bg-verde_menta float-end text-light" type="submit">Iniciar Sesión</button>
+        </div>
+      </div>
+  </form>
+</div>
+
+{% endblock %}

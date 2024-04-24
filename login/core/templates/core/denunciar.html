@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Denunciar Publicación</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <header>
+        
+    </header>
+    <main>
+        <section class="perfil">
+            <a href="{% url 'home' %}" class="back-button"><i class="fas fa-arrow-left"></i>Inicio</a>
+            <div class="imagen-perfil">
+                <img src="{% static 'agricultor2.jpg' %}" alt="Imagen de perfil predeterminada">
+            </div>
+                <div class="formulario-denuncia">
+                    <h3>Denunciar Usuario</h3>
+                    <form action="{% url 'denunciar' vendedor_id=vendedor.id %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="usuario_denunciado" value="{{ vendedor.id }}">
+                        <textarea name="motivo" placeholder="Describe el motivo de la denuncia"></textarea>
+                        <button type="submit">Denunciar Usuario</button>
+                    </form>
+                </div>
+        </section>
+    </main>
+</body>
+</html>

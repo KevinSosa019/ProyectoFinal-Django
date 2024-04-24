@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil del Vendedor</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <header>
+        
+    </header>
+    <main>
+        <section class="perfil">
+            <a href="{% url 'home' %}" class="back-button"><i class="fas fa-arrow-left"></i>Inicio</a>
+            <div class="imagen-perfil">
+                <img src="{% static 'agricultor2.jpg' %}" alt="Imagen de perfil predeterminada">
+            </div>
+
+            <div class="formulario-mensaje">
+                <h3>Enviar Mensaje</h3>
+                {% if vendedor %}
+                <form action="{% url 'enviar_mensaje' vendedor.id %}" method="post">
+                {% endif %}
+                    {% csrf_token %}
+                    <input type="hidden" name="destinatario" value="{{ vendedor.id }}">
+                    <textarea name="mensaje" placeholder="Escribe tu mensaje aquí"></textarea>
+                    <button type="submit">Enviar Mensaje</button>
+                </form>
+            </div>
+            <div id="conversacion">
+                <!-- Aquí se mostrarán los mensajes -->
+                {% for mensaje in mensajes %}
+                <div class="mensaje">{{ mensaje.texto }}</div>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+</body>
+</html>
+
+

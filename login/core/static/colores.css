@@ -1,0 +1,54 @@
+/*Colores a usar  */
+:root {
+    --primario: #026a04;
+    --secundario: #0CA789;
+    --tercero: #242523;
+    --cuarto: #0f9b0f;
+}
+
+.bg-verde {
+    background: var(--primario) !important;
+}
+
+.bg-verde_menta{
+    background: var(--secundario) !important;
+}
+
+.bg-nav{
+    background: var(--tercero) !important;
+}
+
+.bg-boton{
+    background: var(--tercero) !important;
+}
+
+.bg-fondo{
+    background: #52c234;
+    background: -webkit-linear-gradient(to top,  #52c234, #606e5b);
+    background: linear-gradient(to top,#52c234,#285dd8b1);
+   
+}
+
+.bg-fondo-white{
+    background: -webkit-linear-gradient(to top, #2f10dd, #287512);
+    background: linear-gradient(to top, #285dd8b1, #53c234cf);
+    border-radius: 10px; /* Bordes redondeados para suavizar la apariencia */
+}
+
+
+.carousel-item img {
+    background-color: #e5ddd4fa;
+    color: brown;
+    max-width: 100%;
+    height: auto;
+}
+
+.carousel-item img {
+    margin: auto; /* Centra horizontalmente las imágenes */
+}
+
+.img-pequena {
+    width: 50%; /* Ajusta el ancho de la imagen según lo necesites */
+    height: auto; /* Mantén la proporción de aspecto */
+}
+

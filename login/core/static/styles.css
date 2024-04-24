@@ -1,0 +1,158 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('/media/fond.jpg');
+    background-size: contain;
+}
+
+.back-button {
+    display: inline-block;
+    margin-bottom: 10px; /* Ajusta el margen inferior según sea necesario */
+    padding: 5px 10px;
+    background-color: #0839aa; /* Color de fondo del botón */
+    color: #fff; /* Color del texto */
+    border: none;
+    border-radius: 5px;
+    text-decoration: none; /* Para eliminar el subrayado del enlace */
+  }
+  
+  .back-button:hover {
+    background-color: #0057b3e1; /* Color de fondo del botón al pasar el mouse */
+  }
+  
+  .back-button i {
+    margin-right: 5px; /* Espacio entre el icono y el texto */
+  }
+
+/* Estilos de la sección de perfil */
+.perfil {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(13, 140, 70, 0.726); /* Fondo oscuro con transparencia */
+    color: rgb(255, 255, 255); /* Texto en blanco */
+    font-size: 1.2em; /* Texto un poco más grande */
+    text-align: center; /* Texto centrado */
+}
+
+.imagen-perfil {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 100px; /* Esto es para separar un poco la imagen del texto */
+    margin-left: 40px;
+}
+
+.imagen-perfil img {
+    width: 100%;
+    height: auto; /* Para mantener la proporción de la imagen */
+    object-fit:inherit; /* Para ajustar la imagen dentro del contenedor */
+
+}
+
+.informacion {
+    flex: 23%;
+    text-align: justify;
+}
+
+/* Estilos de la sección de publicaciones */
+.publicaciones {
+    padding: 20px;
+    background-color: rgba(28, 154, 217, 0.726); /* Fondo oscuro con transparencia */
+    text-align: center;
+}
+
+.publicaciones h2 {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.table-container {
+    margin: 0 auto; /* Esto centrará horizontalmente el contenedor de la tabla */
+    width: 80%; /* Puedes ajustar este ancho según tus necesidades */
+}
+
+.table {
+    background-color: white; /* Color de fondo blanco */
+    border-radius: 10px; /* Bordes redondeados para suavizar la apariencia */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera para resaltar la tabla */
+}
+
+/* Estilos para el formulario de mensaje */
+.formulario-mensaje {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #564f4f;
+    border-radius: 10px;
+}
+
+.formulario-mensaje h3 {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.formulario-mensaje textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.formulario-mensaje button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.formulario-mensaje button:hover {
+    background-color: #0056b3;
+}
+
+.mensaje {
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+/* Estilos para el formulario de denuncia */
+.formulario-denuncia {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #564f4f;
+    border-radius: 10px;
+}
+
+.formulario-denuncia h3 {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.formulario-denuncia textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.formulario-denuncia button {
+    padding: 10px 20px;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.formulario-denuncia button:hover {
+    background-color: #c82333;
+}
+

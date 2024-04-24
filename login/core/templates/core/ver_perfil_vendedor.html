@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil del Vendedor</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <header>
+        <!-- Barra de navegación -->
+    </header>
+    <main>
+        <section class="perfil">
+            <a href="{% url 'home' %}" class="back-button"><i class="fas fa-arrow-left"></i>Inicio</a>
+            <div class="imagen-perfil">
+                <img src="{% static 'agricultor2.jpg' %}" alt="Imagen de perfil predeterminada">
+            </div>
+            <div class="informacion">
+                <h1>Información del Vendedor</h1>
+                <p><strong>Nombre:</strong> {{ vendedor.first_name }} {{ vendedor.last_name }}</p>
+                <p><strong>Correo electrónico:</strong> {{ vendedor.email }}</p>
+                <p><strong>Teléfono:</strong> {{ vendedor.telefono }}</p>
+                <p><strong>Dirección:</strong> {{ vendedor.direccion }}</p>
+                <p><strong>Ciudad:</strong> {{ vendedor.ciudad }}</p>
+                <!-- Otra información del vendedor -->
+            </div>
+        </section>
+    
+        <section class="publicaciones">
+            <h2>Publicaciones del Vendedor</h2>
+            <div class="table-container">
+                <div class="table-responsive py-2">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Código</th>
+                                <th>Título</th>
+                                <th>Precio</th>
+                                <th>Cantidad</th>
+                                <th>Categoría</th>
+                                <th>Unidad</th>
+                                <!-- Agrega más encabezados si es necesario -->
+                                <th>Descripción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for publicacion in publicaciones %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ publicacion.codigo }}</td>
+                                <td>{{ publicacion.titulo }}</td>
+                                <td>{{ publicacion.precio }}</td>
+                                <td>{{ publicacion.cantidad }}</td>
+                                <td>{{ publicacion.categoria }}</td>
+                                <td>{{ publicacion.unidad }}</td>
+                                <!-- Agrega más columnas si es necesario -->
+                                <td>{{ publicacion.descripcion }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <!-- Pie de página -->
+    </footer>
+</body>
+</html>
